@@ -20,4 +20,12 @@ export class EntrepotComponent implements OnInit {
     this.ser.deleteArticle(id).subscribe(
       response=>{ this.entrepots = this.entrepots.filter(item => item.id != id)}
     )
-}}
+}
+export(){
+  this.ser.exportArticles().subscribe((res)=>{
+   let file= new Blob([res], {type: 'application/vnd.ms-excel'})
+    var fileUrl= URL.createObjectURL(file);
+    window.open(fileUrl)
+  })
+ }
+}

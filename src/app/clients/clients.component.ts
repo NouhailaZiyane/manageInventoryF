@@ -21,7 +21,13 @@ search:string=''
     this.search=searchValue
     console.log(this.search)
   }
-   
+  export(){
+    this.ser.exportArticles().subscribe((res)=>{
+     let file= new Blob([res], {type: 'application/vnd.ms-excel'})
+      var fileUrl= URL.createObjectURL(file);
+      window.open(fileUrl)
+    })
+   }
   deleteArticle(id:number):any{
     this.ser.deleteArticle(id).subscribe(
       response=>{ this.clients = this.clients.filter(item => item.id != id)}

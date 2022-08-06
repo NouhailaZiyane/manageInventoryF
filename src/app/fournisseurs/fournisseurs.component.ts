@@ -19,5 +19,11 @@ export class FournisseursComponent implements OnInit {
     this.ser.deleteArticle(id).subscribe(
       response=>{ this.clients = this.clients.filter(item => item.id != id)}
     )}
-
+    export(){
+      this.ser.exportArticles().subscribe((res)=>{
+       let file= new Blob([res], {type: 'application/vnd.ms-excel'})
+        var fileUrl= URL.createObjectURL(file);
+        window.open(fileUrl)
+      })
+     }
 }

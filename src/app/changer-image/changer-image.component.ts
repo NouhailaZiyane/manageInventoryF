@@ -65,6 +65,7 @@ tmp!: string
     .subscribe(response=>console.log(response));
     this.route.navigate(['/articles']).then(() => {
       window.location.reload();
+      window.location.reload();
     });
   
 }else{

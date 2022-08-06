@@ -1,3 +1,6 @@
+<button type="button" class="btn btn-success" align="left" (click)="export()"><mat-icon>get_app</mat-icon>Exporter la liste (csv)</button>
+<br><br>
+
 <button type="button" class="btn btn-info" align="left" routerLink="/newClient">Créer un client</button><br> <br>
 <app-form-search (eventHandle)="filter($event)"></app-form-search>
 
@@ -9,7 +12,6 @@
         <th scope="col">Prénom</th>
         <th scope="col">Adresse mail</th>
         <th scope="col">Ville</th>
-        <th scope="col">Pays</th>
         <th scope="col">Adresse</th>
         <th scope="col">Tél</th>
         <th scope="col">Code Postal</th>
@@ -25,7 +27,6 @@
         <td>{{a.prenom}}</td>
         <td >{{a.mail}}</td>
         <td>{{a.ville}}</td>
-        <td>{{a.pays}}</td>
         <td>{{a.adresse}}</td>
         <td>{{a.tel}}</td>
         <td>{{a.cpostal}}</td>

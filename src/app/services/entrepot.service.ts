@@ -26,4 +26,7 @@ export class EntrepotService {
  deleteArticle(id:number):Observable<any>{
   return this.http.delete<any>(this.url+'/deleteE/'+id);
 }
+exportArticles(){
+  return this.http.get<any>(this.url+'/export', {responseType: 'arraybuffer' as 'json'})
+}
 }

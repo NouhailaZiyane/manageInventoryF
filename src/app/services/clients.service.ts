@@ -29,4 +29,7 @@ export class ClientsService {
 countClient():Observable<BigInt>{
     return this.http.get<BigInt>(this.url+'/countC')
 }
+exportArticles(){
+  return this.http.get<any>(this.url+'/export', {responseType: 'arraybuffer' as 'json'})
+}
 }

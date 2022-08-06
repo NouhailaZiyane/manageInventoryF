@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,7 +25,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { FormArticleComponent } from './form-article/form-article.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { FormFamilleComponent } from './form-famille/form-famille.component';
 import { FamilleComponent } from './famille/famille.component';
 import { ShowFamilleComponent } from './show-famille/show-famille.component';
@@ -73,7 +71,6 @@ import { ExampleTelInputContainerComponent } from './example-tel-input-container
     HeaderComponent,
     ArticlesComponent,
     FormArticleComponent,
-    DialogComponent,
     FormFamilleComponent,
     FamilleComponent,
     ShowFamilleComponent,

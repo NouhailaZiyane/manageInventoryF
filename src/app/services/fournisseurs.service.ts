@@ -28,4 +28,7 @@ export class FournisseursService {
 countFournisseur():Observable<BigInt>{
     return this.http.get<BigInt>(this.url+'/countFour')
 }
+exportArticles(){
+  return this.http.get<any>(this.url+'/export', {responseType: 'arraybuffer' as 'json'})
+}
 }

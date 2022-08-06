@@ -1,3 +1,8 @@
 table{
     width: 100%;
 }
+mat-icon{
+    position: relative;
+    right: 5px;
+    top: 5px;
+}

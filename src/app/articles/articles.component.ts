@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConditionnementComponent } from '../conditionnement/conditionnement.component';
-import { DialogComponent } from '../dialog/dialog.component';
 import { Article } from '../models/Article';
 import { Famille } from '../models/Famille';
 import { FileHandle } from '../models/File-handler';
