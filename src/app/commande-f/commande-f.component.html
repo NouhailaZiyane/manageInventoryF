@@ -1,0 +1,47 @@
+<button type="button" class="btn btn-info" align="left" routerLink="/commandeFourniForm">Créer une Commande d'achat</button><br> <br>
+<app-form-search (eventHandle)="filter($event)"></app-form-search>
+
+<table class="table table-striped">
+    <thead>
+      <tr class="table-info">
+        <th scope="col">Fournisseur de la commande</th>
+        <th scope="col">Date de la commande</th>
+        <th scope="col">Date de la réception</th>
+        <th scope="col">Condition de paiement</th>
+        <th scope="col">Réference</th>
+        <th scope="col">Mode de paiement</th>
+        <th scope="col">Article</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Unité</th>
+        <th scope="col">Montant</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let a of c" >
+      <tr class="table-info"  *ngIf="search === '' || a.f.nom.toLowerCase().includes(search) || a.a.designation.toLowerCase().includes(search)  || a.reference.toLowerCase().includes(search)">
+       
+
+        <td>{{a.f.nom}} </td>
+        <td>{{a.datecmde}}</td>
+        <td>{{a.daterec}}</td>
+        <td >{{a.condPai}}</td>
+        <td>{{a.reference}}</td>
+        <td>{{a.modePai}}</td>
+        <td>{{a.a.designation}}</td>
+        <td>{{a.quantite}}</td>
+        <td>{{a.c.unite}}</td>
+        <td>{{a.montant}}</td>
+        <td><div class="dropdown">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary" routerLink='/commandeFourni/{{a.id}}'>Modifier la commande</button>
+                    <button type="button" class="btn btn-secondary" (click)="deleteArticle(a.id)">Supprimer</button>
+                    <button type="button" class="btn btn-secondary" routerLink="/commandeCF/{{a.id}}">Exporter</button>
+                </div>
+           
+        </div></td>
+    
+      </tr>
+      
+      
+    </tbody>
+  </table>

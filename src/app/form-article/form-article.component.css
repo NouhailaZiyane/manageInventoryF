@@ -1,0 +1,28 @@
+
+mat-form-field{
+    width:50%;
+}
+
+.n{
+    font-style:red;
+}
+mat-grid-tile {
+    border: 1px solid #eee;
+
+  }
+  .btn-remove-image{
+    position: absolute;
+    cursor: pointer;
+    bottom:-10 px ;
+    left:-50 px ;
+    background-color: red;
+    color:    white ;
+    border-radius: 50%;
+    width: 20px;
+    height: auto;
+    text-align: center;
+  }
+button{
+  width: 100px;
+}
+  

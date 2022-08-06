@@ -1,0 +1,138 @@
+<div  *ngIf="session">
+<mat-toolbar  color="accent">
+    <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle();" fxShow="true" fxHide.gt-sm>menu</mat-icon>
+    </button>
+    <span>N-Stock</span>
+    <div fxShow="true" fxHide.lt-md="true">
+
+    <a routerLink="commandeFourni" mat-button>Commandes d'achat</a>
+
+    <a href="commandeClient" mat-button>Commandes de vente</a>
+    <a href="#" mat-button>
+    <div class="dropdown">
+      <a class="dropdown-toggle" mat-button  type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Mouvements
+      </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown">
+        <li><a class="dropdown-item" routerLink="formMouvet">Créer une mouvement</a></li>
+        <li><a class="dropdown-item" routerLink="mouvet">visualiser le mouvements</a></li>
+      
+    </ul>
+    </div>
+  </a>
+  </div>
+</mat-toolbar-row>
+
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill>
+    <br>
+    <mat-sidenav #sidenav opened="true" mode="side">
+        <mat-nav-list>
+          <mat-accordion>
+            <img [src]="cheminImage" alt="nouha"  height="120"/><br><br>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title>
+         <h1  class="fs-5 fw-bolder" mat-list-item data-bs-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseExample"><mat-icon>lock</mat-icon>Bienvenue {{session}}</h1>
+
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+<a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="modifierInfo"><mat-icon>how_to_reg</mat-icon>Modifier vos informations</a>
+   <a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item (click)="logout()"><mat-icon>remove_circle</mat-icon>Se déconnecter</a>
+</mat-expansion-panel>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon  matBadgeColor="warn">home</mat-icon>
+                 <a class="fs-5 fw-bolder" mat-list-item href="/">
+                          Accueil</a><br>
+                </mat-panel-title>
+                
+              </mat-expansion-panel-header>
+              </mat-expansion-panel>
+              <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                   <a class="fs-5 fw-bolder" mat-list-item >
+                    <mat-icon> store_mall_directory</mat-icon>&nbsp;&nbsp;Articles</a><br>
+                  </mat-panel-title>
+                  
+                </mat-expansion-panel-header>
+               <a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="articles">Liste des articles</a>
+                      <a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item routerLink="/newArticle">Creér un nouveau article</a>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                              <a  class="fs-5 fw-bolder" mat-list-item data-bs-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseExample"><mat-icon> category</mat-icon>&nbsp;&nbsp;Familles d'articles</a>
+          
+                </mat-panel-title>
+               
+              </mat-expansion-panel-header>
+               <a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="familles">Liste des familles</a>
+                        <a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item routerLink="/newFamille">Creér une nouvelle famille</a>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title>
+         <a  class="fs-5 fw-bolder" mat-list-item data-bs-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseExample"><mat-icon matBadgeColor="warn">supervised_user_circle</mat-icon>&nbsp;&nbsp;Fournisseurs</a>
+
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+<a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="fournisseurs">Liste des fournisseurs</a>
+   <a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item routerLink="/newFournisseur">Creér un nouveau fournisseur</a>
+</mat-expansion-panel>
+<mat-expansion-panel (opened)="panelOpenState = true"
+(closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title>
+<a  class="fs-5 fw-bolder" mat-list-item data-bs-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseExample"><mat-icon>supervisor_account</mat-icon>&nbsp;&nbsp;Clients</a>
+
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+<a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="clients">Liste des clients</a>
+<a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item routerLink="/newClient">Creér un nouveau client</a>
+</mat-expansion-panel>
+<mat-expansion-panel (opened)="panelOpenState = true"
+(closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title>
+<a  class="fs-5 fw-bolder" mat-list-item data-bs-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseExample"><mat-icon>store</mat-icon>&nbsp;&nbsp;Entrepots</a>
+
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+<a  class="fs-6 fw-italic" routerLinkActive="active" mat-list-item routerLink="entrepots">Liste des entrepots</a>
+<a  class="fs-6fw-italic" routerLinkActive="active" mat-list-item routerLink="/newEntrepot">Creér un nouveau entrepot</a>
+</mat-expansion-panel>
+          </mat-accordion>
+          
+          </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill> <br><br>
+    
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+      
+      
+        <div style="height:88vh;">
+          
+
+        </div>
+       
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+  </div>
+  <div class="container" *ngIf="!session">
+  <app-auth></app-auth>
+</div>
+ 

@@ -1,0 +1,69 @@
+<form name="myForm">
+    <h3 class="fs-3 fw-bolder" *ngIf="e.id"> Editer l'entrepot</h3>
+    <h3  class="fs-3 fw-bolder" *ngIf="!e.id">Créer un entrepot</h3>
+    <div class="alert alert-danger" role="alert" *ngIf="tmp">
+      {{tmp}}
+    </div>
+    <div class="row">
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Intitulé</mat-label>
+          <input matInput ng-required="expression1"  [(ngModel)]="e.intitule" name="pre" placeholder="Désignation" required>
+
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Adresse mail</mat-label>
+          <input type="email" ng-required="expression" [(ngModel)]="e.mail" name="mail" matInput placeholder="Réference" required>
+
+        </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+       
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Tél</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="e.tel" name="tel" matInput placeholder="Réference" required>
+        
+        </mat-form-field>
+    
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+            <mat-label type="text" class="fs-6">Code postal</mat-label>
+            <input matInput ng-required="expression1"  [(ngModel)]="e.cpostal" name="cpost" placeholder="Désignation" required>
+
+          </mat-form-field>
+</div></div>
+
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label type="text" class="fs-6">Ville</mat-label>
+                <input matInput ng-required="expression1"  [(ngModel)]="e.ville" name="ville" placeholder="Désignation" required>
+
+              </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+            <mat-label type="text" class="fs-6">Adresse</mat-label>
+            <input matInput ng-required="expression1"  [(ngModel)]="e.adresse" name="des" placeholder="Désignation" required>
+
+          </mat-form-field>
+    </div>
+    </div>
+   
+   
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3">
+      <button class="btn btn-danger"  *ngIf="!e.id"  (click)="onSubmit()">Valider</button>
+      <button class="btn btn-danger"  *ngIf="e.id" (click)="onSubmit()">Editer</button>
+      
+      </div>
+     
+    </div></form>
+    
+      

@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-6">
+<google-chart
+  title="Stock "
+  [type]="pieChart"
+  [data]="data"
+  [columns]="columnNames"
+  [width]="width"
+  [height]="height"
+>
+</google-chart>
+</div>
+<div class="col-6">
+<google-chart
+  title="Articles par familles"
+  [type]="pieChart1"
+  [data]="data1"
+  [columns]="columnNames1"
+  [width]="width1"
+  [height]="height1"
+  [options]="options"
+>
+</google-chart>
+</div></div>
+<div class="row">
+  <div class="col-6">
+    <google-chart
+  title="Clients vs Fournisseurs"
+  [type]="pieChart2"
+  [data]="data3"
+  [columns]="columnNames2"
+  [width]="width1"
+  [height]="height1"
+
+>
+</google-chart>
+  </div>
+  <div class="col-6">
+    <google-chart
+    title="Commandes"
+    [type]="pieChart4"
+    [data]="data4"
+    [columns]="columnNames4"
+    [width]="width4"
+    [height]="height4"
+    [options]="donutOptions"
+  
+  ></google-chart>
+
+  </div>
+</div>

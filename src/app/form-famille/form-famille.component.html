@@ -1,0 +1,36 @@
+<form name="myForm">
+    <h3  *ngIf="famille.id"> Editer une famille d'article</h3>
+    <h3  *ngIf="!famille.id">Créer une famille d'article</h3>  <div class="alert alert-danger" role="alert" *ngIf="tmp">
+      {{tmp}}
+    </div>
+    <div class="row">
+        <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Code</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="famille.code" name="reference" matInput placeholder="Réference" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label type="text" class="fs-6">Intitulé</mat-label>
+          <input matInput ng-required="expression1"  [(ngModel)]="famille.intitule" name="des" placeholder="Désignation" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </div>
+    </div>
+   
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3">
+      <button class="btn btn-danger"  *ngIf="!famille.id"  (click)="onSubmit()">Valider</button>
+      <button class="btn btn-danger"  *ngIf="famille.id" (click)="onSubmit()">Editer</button>
+      
+      </div>
+     
+    </div></form>
+    
+      
+      

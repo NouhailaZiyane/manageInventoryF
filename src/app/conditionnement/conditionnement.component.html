@@ -1,0 +1,83 @@
+<div *ngIf="!tmp">
+<div class="row">
+    <h2>Conditionnement</h2>
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>Unité</mat-label>
+        <mat-select [(ngModel)]="c.unite" name="ug" required>
+          <mat-option value="carton">Carton</mat-option>
+          <mat-option value="boite">Boite</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field appearance="outline">
+        <mat-label class="fs-6">Quantité</mat-label>
+        <input type="number" ng-required="expression" [(ngModel)]="c.qte" name="quantite" matInput placeholder="Quantité" required>
+      </mat-form-field>
+      </div></div>
+      <div class="row">
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Prix d'achat</mat-label>
+          <input type="number" ng-required="expression" [(ngModel)]="c.prixA" name="prixA" matInput placeholder="Prix d'achat" required>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">prix de vente</mat-label>
+          <input type="number" ng-required="expression" [(ngModel)]="c.prixV" name="prixV" matInput placeholder="Prix de vente" required>
+        </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-3">
+      <button class="btn btn-danger" *ngIf="!c.id"    (click)="onSubmit()">Valider</button>
+      <button class="btn btn-danger" *ngIf="c.id"     (click)="modifier(c)">Valider</button>
+      <br><br><button class="btn btn-warning"   mat-dialog-close  >Annuler</button>
+
+    </div>
+</div></div>
+<div *ngIf="tmp">
+  <h1>Conditionnement de l'article {{a.designation}}</h1>
+<br> <br>
+<button (click)="cliquer()" class="btn btn-info">Ajouter un conditionnement</button><br> <br>
+  <table class="table table-striped">
+    <thead>
+
+      <tr class="table-danger">
+        <th scope="col">Unité</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix de vente</th>
+        <th scope="col">Prix d'achat</th>
+        <th scope="col">Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-danger" *ngFor="let c of article">
+        
+        <td>{{c.unite}} </td>
+        <td>{{c.qte}}</td>
+        <td >{{c.prixV}}</td>
+        <td>{{c.prixA}}</td>
+      
+        <td><div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li><a class="dropdown-item"    (click)="modifier1(c)">modifier ce Conditionnement</a></li>
+                <li><a class="dropdown-item"   (click)="deleteArticle(c.id)">Supprimer ce Conditionnement</a></li>
+              
+            </ul>
+        </div></td>
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <button class="btn btn-warning"   mat-dialog-close  >Annuler</button>
+
+</div>

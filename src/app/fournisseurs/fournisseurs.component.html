@@ -1,0 +1,45 @@
+<button type="button" class="btn btn-info" align="left" routerLink="/newFournisseur">Créer un fournisseur</button>
+
+<table class="table table-striped">
+    <thead>
+
+      <tr class="table-danger">
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Adresse mail</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Pays</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Tél</th>
+        <th scope="col">Code Postal</th>
+        <th scope="col">Fax</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-danger" *ngFor="let a of clients">
+        
+        <td>{{a.nom}} </td>
+        <td>{{a.prenom}}</td>
+        <td >{{a.mail}}</td>
+        <td>{{a.ville}}</td>
+        <td>{{a.pays}}</td>
+        <td>{{a.adresse}}</td>
+        <td>{{a.tel}}</td>
+        <td>{{a.cpostal}}</td>
+        <td>{{a.fax}}</td>
+        <td><div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li><a class="dropdown-item" routerLink='/fournisseur/{{a.id}}'>modifier ce fournisseur</a></li>
+                <li><a class="dropdown-item" (click)="deleteArticle(a.id)">Supprimer ce fournisseur</a></li>
+              
+            </ul>
+        </div></td>
+
+      </tr>
+      
+    </tbody>
+  </table>

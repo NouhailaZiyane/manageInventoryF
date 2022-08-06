@@ -1,0 +1,32 @@
+<h2>Qualité de l'article {{idAr.designation}}</h2>
+
+<div *ngIf="!tmp">
+<div class="example-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Qualité</mat-label>
+        <mat-select [(ngModel)]="q.qualite" >
+          <mat-option value="Bonne">Bonne</mat-option>
+          <mat-option value="Moyenne">Moyenne</mat-option>
+          <mat-option value="Mauvaise">Mauvaise</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br> <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Note</mat-label>
+      <input matInput #input  placeholder="Note" [(ngModel)]="q.note">
+    </mat-form-field>
+    </div>
+<button class="btn btn-successs" mat-dialog-close  *ngIf="!q.id" (click)="submit()">Submit</button>
+<button class="btn btn-successs" mat-dialog-close  *ngIf="q.id" (click)="submit1(q)">Modifier</button>
+<button class="btn btn-successs" mat-dialog-close  *ngIf="q.id" (click)="supprimer(q.id)">Supprimer</button>
+<button class="btn btn-successs"  mat-dialog-close>Annuler</button>
+</div>
+<div *ngIf="tmp1!=null">
+<div *ngIf="tmp">
+<b>Qualité : </b>{{q.qualite}}<br><br>
+<b>Note : </b>{{q.note}}<br><br><br>
+<button class="btn btn-successs"  (click)="modifier(q)">Modifier</button>
+<button class="btn btn-successs" mat-dialog-close (click)="supprimer(q.id)">Supprimer</button>
+<button class="btn btn-successs" mat-dialog-close>Annuler</button>
+</div>
+</div>

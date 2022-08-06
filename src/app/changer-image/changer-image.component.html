@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-6">
+      <input type="file"   accept="image/*"  (change)="onSelectedFile($event)" id="selectFile" #selectFile [(ngModel)]="article.imagesAr" >
+      <img [src]="imgUrl" width="100px" height="100px" *ngIf="imgUrl">
+   <p *ngIf="msg">{{msg}}</p>
+    </div>
+  </div><br> <br>
+  <button class="btn btn-danger"  *ngIf="article.id" (click)="onSubmit()">Editer</button>

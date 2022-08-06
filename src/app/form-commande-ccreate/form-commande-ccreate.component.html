@@ -1,0 +1,118 @@
+<form name="myForm">
+    <h3 class="fs-3 fw-bolder" *ngIf="client.id"> Editer la commande client</h3>
+    <h3  class="fs-3 fw-bolder" *ngIf="!client.id">Créer une commande client</h3>
+    <div class="alert alert-danger" role="alert" *ngIf="tmp">{{tmp}}</div>
+    <br> <br>
+    <div class="row">
+        <div class="col-3">
+        <div class="form-group">
+          <label>Client de la commande</label>
+          <select  [(ngModel)]="client.f" [compareWith]="comparer1" name="f" class="form-control" required >
+            <option  [ngValue]="undefined"  ng-required="expression" >Selectionnez le client de la commande</option>
+            <option  *ngFor="let fou of fourni"  [ngValue]="fou" >{{fou.nom}}</option>
+          </select></div>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <label>Date de la commande</label>
+
+          <input  type="date" class="form-control" placeholder="Choisir une date" [(ngModel)]="client.datecmde" name="datecmde">
+        
+
+    </div>
+    </div><br>
+    <div class="row">
+        <div class="col-6">
+        <mat-form-field appearance="outline" [style.width.px]=300>
+          <mat-label class="fs-6">Condition de paiement</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="client.condPai" name="mail" matInput placeholder="Réference" required>
+
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline" [style.width.px]=300>
+          <mat-label class="fs-6">Réference</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="client.reference" name="tel" matInput placeholder="Réference" required>
+
+        </mat-form-field>
+    
+    </div></div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field appearance="outline" [style.width.px]=300>
+                <mat-label type="text" class="fs-6">Mode de paiement</mat-label>
+                <mat-select [(ngModel)]="client.modePai" name="uniteGestion" required>
+                    <mat-option value="Chèque">Chèque</mat-option>
+                    <mat-option value="Espèce">Espèce</mat-option>
+                  </mat-select>
+              </mat-form-field>
+    </div>
+    <div class="col-3">
+    
+          
+          <div class="form-group">
+            <label>Article</label>
+            <select  [(ngModel)]="client.a" [compareWith]="comparer" (ngModelChange)="onChange($event)" name="a"  class="form-control" required >
+              <option  [ngValue]="undefined"  ng-required="expression" >Selectionnez un article</option>
+              <option  *ngFor="let a of article"  [ngValue]="a" >{{a.designation}}</option>
+            </select></div>
+    </div>
+    </div>
+   
+    <div class="row">
+        <div class="col-3">
+           
+              <div class="form-group">
+                <label>Unité</label>
+                <select [(ngModel)]="client.c" name="c" [compareWith]="comparer2" (ngModelChange)="change($event)"  class="form-control" required >
+                  <option  [ngValue]="undefined"  ng-required="expression" >Selectionnez une unité</option>
+                  <option  *ngFor="let u of condi"  [ngValue]="u" >{{u.unite}}</option>
+                </select></div>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6">
+        <mat-form-field appearance="outline" [style.width.px]=300>
+            <mat-label type="text" class="fs-6">Quantite</mat-label>
+            <input matInput ng-required="expression1"  [(ngModel)]="client.quantite" (change)="change1($event)" name="des" placeholder="Désignation" required>
+
+          </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field appearance="fill" [style.width.px]=300>
+            <mat-label>Prix de vente</mat-label>
+            <input matInput type="number"  [(ngModel)]="prixV" readonly class="example-right-align" name="prix"  placeholder="0">
+            <span matPrefix>DH&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+    </div>
+        
+    <div class="col-6">
+        <mat-form-field appearance="fill" [style.width.px]=300>
+            <mat-label>Montant</mat-label>
+            <input matInput type="number" [(ngModel)]="client.montant" readonly class="example-right-align" name="montant"  placeholder="0">
+            <span matPrefix>DH&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <label>Date de la réception</label>
+
+        <input  type="date" class="form-control" placeholder="Choisir une date de reception" [(ngModel)]="client.daterec" name="daterec">
+
+    </div>
+    </div>
+   <br><br>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3">
+      <button class="btn btn-danger" (click)="submit()" *ngIf="!client.id">Valider</button>
+      <button class="btn btn-danger" (click)="submit1()" *ngIf="client.id">Editer</button>
+      </div>
+     <div class="col-5"></div>
+    </div><br></form>
+    
+      

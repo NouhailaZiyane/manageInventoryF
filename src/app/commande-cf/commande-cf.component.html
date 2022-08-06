@@ -1,0 +1,18 @@
+
+<div id="cmde" #cmde><br>
+    <p class="h1" align="center" >    <img [src]="cheminImage" alt="nouha" height="120"/>
+        Commande d'achat</p>
+    <br><br><br><br><br>
+    <span><b>Réference &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:</b>{{client.reference}}</span><br><br>
+    <span><b>Fournisseur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;            :</b><span>{{client.f.nom}}</span><br><br>
+    <span><b>Date de commmande   &nbsp; &nbsp;     :</b><span>{{client.datecmde}}</span><br><br>
+    <span><b>Date de réception    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   :</b><span>{{client.daterec}}</span><br><br>
+    <span><b>Article     &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;           :</b><span>{{client.a.designation}}</span><br><br>
+    <span><b>Quantité    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;            :</b><span>{{client.quantite}}</span><br><br>
+    <span><b>Unité     &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             :</b><span>{{client.c.unite}}</span><br><br>
+    <span><b>Condition de paiement   :</b><span>{{client.condPai}}</span><br><br>
+    <span><b>Mode de paiement    &nbsp; &nbsp;&nbsp; &nbsp;     :</b><span>{{client.modePai}}</span><br><br>
+    <span><b>Montant      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;           :</b><span>{{client.montant}} DH</span><br><br>
+    </span></span></span></span></span></span></span></span></span></div><br> <br>
+    <p class="h3" align="right">Par l'application N-stock</p>
+    <button (click)="exporter()" class="btn btn-info">Exporter la commande (Format pdf)</button>

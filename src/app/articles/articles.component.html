@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-success" (click)="export()" align="left" >Exporter les articles</button> <br><br>
+
+<div class="row">
+      <app-form-search (eventHandle)="filter($event)"></app-form-search>
+<div class="col-4"  *ngFor="let a of articles">
+      <div *ngIf="search === '' || a.designation.toLowerCase().includes(search) || a.reference.toLowerCase().includes(search) || a.f.intitule.toLowerCase().includes(search)">
+      <div class="card"  >
+
+        <div class="card-body">
+         
+        <img class="card-img-top" src="{{this.articleSer.url+'/image/'+a.id}}" alt="Aucune image" width="100px" height="100px">
+        
+       <br>
+       <br>
+          <p class="card-text">
+            <b>Désignation:</b> {{a.designation}}<br><br>
+            <b>Réference:</b> {{a.reference}}<br><br>
+            <b>Famille d'article:</b> {{a.f.intitule}}<br><br>
+            <b> Nomenclature:</b> {{a.nomenclature}}<br><br>
+            <b>Type d'article:</b> {{a.typeArticle}}<br><br>
+            <b>Code barre:</b> {{a.codeBarre}}<br><br>
+            <b>Unité de gestion:</b> {{a.uniteGestion}}<br><br>
+            <b>Stock:</b> {{a.stock}}<br><br>
+          
+        
+    <button routerLink='/articles/{{a.id}}' mat-button color="primary">Modfier</button>
+          <button mat-button color="accent" (click)="deleteArticle(a.id)">Supprimer</button><br>
+          <button mat-button color="primary" (click)="openDialog1(a)">Conditionnement</button>
+          <button mat-button color="primary" (click)="openDialog(a)">Qualité du produit</button>
+          <button mat-button color="primary" routerLink="/changerImage/{{a.id}}">Modifier l'image de l'article</button>
+
+      </div>
+      </div>
+</div>
+</div><br>
+</div>

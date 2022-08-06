@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="card-counter primary">
+            
+            <span class="count-numbers" >{{countStock}}</span>
+            <span class="count-name">Stock</span>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-counter danger">
+            <span class="count-numbers">{{countArticle}}</span>
+            <span class="count-name">Articles</span>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-counter success">
+            <i class="fa fa-database"></i>
+            <span class="count-numbers">{{countFournis}}</span>
+            <span class="count-name">Fournisseurs</span>
+        </div>
+    </div>
+    
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <div class="col-md-3">
+        <div class="card-counter info">
+            <i class="fa fa-users"></i>
+            <span class="count-numbers">{{countClients}}</span>
+            <span class="count-name">Clients</span>
+        </div>
+    </div>
+      
+<app-header></app-header>     
+<script src="bower_components/angular-google-chart/ng-google-chart.js"></script><script src="bower_components/angular-google-chart/ng-google-chart.js"></script>

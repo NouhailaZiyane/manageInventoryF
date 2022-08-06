@@ -1,0 +1,41 @@
+<mat-card class="example-card">
+
+  <div class="alert alert-danger" role="alert" *ngIf="tmp">
+    {{tmp}}
+  </div>
+  <mat-card-header> <mat-card-title>
+  <h1 > <img [src]="cheminImage" alt="nouha"  height="120"/>Bienvenu à l'application N-Stock de gestion de stock</h1><br><br>
+ 
+</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+    <div class="row">
+      <div class="col-5"></div>
+      <div class="col-6">
+        <mat-form-field appearance="fill" [style.width.px]=230>
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input type="text" ng-required="expression" name="username" [(ngModel)]="username" matInput>
+        </mat-form-field>
+  </div></div><br>
+  <div class="row">
+    <div class="col-5">
+    </div>
+      <div class="col-6">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"  [(ngModel)]="password" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div></div><br></mat-card-content>
+  <mat-card-actions>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6">
+  <button mat-raised-button matTooltip="Se connecter à l'application"
+  matTooltipClass="example-tooltip-red"
+  aria-label="Button that shows a red tooltip"
+  class="example-button" color="accent" (click)="check()">Se Connecter</button>
+</div></div></mat-card-actions></mat-card>

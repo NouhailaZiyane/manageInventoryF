@@ -1,0 +1,11 @@
+mat-sidenav{
+    margin-right: 12%;
+
+}
+.active{
+    background-color: rgb(135, 135, 167,0.4);
+}
+img{
+    position: relative;
+    left: 90px;
+}

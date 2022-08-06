@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-success" align="left" routerLink="/newClient"><mat-icon>get_app</mat-icon>Exporter la liste (csv)</button>
+<br><br>
+<table class="table table-striped">
+    <thead>
+
+      <tr class="table-danger">
+      
+        <th scope="col">Intitulé</th>
+        <th scope="col">Adresse mail</th>
+        <th scope="col">Tél</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Code Postal</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-danger" *ngFor="let a of entrepots">
+        
+
+        <td>{{a.intitule}}</td>
+        <td >{{a.mail}}</td>
+        <td>{{a.tel}}</td>
+        <td>{{a.ville}}</td>
+        <td>{{a.cpostal}}</td>
+        <td>{{a.adresse}}</td>
+        <td><div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li><a class="dropdown-item" routerLink='/entrepots/{{a.id}}'>modifier cet entrepot</a></li>
+                <li><a class="dropdown-item" (click)="deleteArticle(a.id)">Supprimer cet entrepot</a></li>
+              
+            </ul>
+        </div></td>
+
+      </tr>
+      
+    </tbody>
+  </table>

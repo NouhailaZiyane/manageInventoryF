@@ -1,0 +1,94 @@
+<form name="myForm">
+  <h3 class="fs-3 fw-bolder" *ngIf="article.id"> Editer l'article</h3>
+  <h3  class="fs-3 fw-bolder" *ngIf="!article.id">Créer un article</h3>
+<div class="row">
+    <div class="col-6">
+      <div class="alert alert-danger" role="alert" *ngIf="tmp">{{tmp1}}</div>
+    <mat-form-field appearance="outline">
+      <mat-label class="fs-6">Réference</mat-label>
+      <input type="text" ng-required="expression" [(ngModel)]="article.reference" name="reference" matInput placeholder="Réference" required>
+    </mat-form-field>
+</div>
+<div class="col-6">
+    <mat-form-field appearance="outline">
+      <mat-label type="text" class="fs-6">Désignation</mat-label>
+      <input matInput  [(ngModel)]="article.designation" name="designation" placeholder="Désignation" required>
+    </mat-form-field>
+</div>
+</div>
+<div class="row">
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>Type d'article</mat-label>
+        <mat-select [(ngModel)]="article.typeArticle"  name="typeArticle" required>
+          <mat-option value="service">Service</mat-option>
+          <mat-option value="stockable">Stockable</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    
+<div class="col-6">
+    <mat-form-field appearance="outline">
+      <mat-label class="fs-6">code Barre</mat-label>
+      <input type="text" matInput class="fs-6" name="codeBarre"  [(ngModel)]="article.codeBarre" required placeholder="Code barre">
+
+    </mat-form-field>
+</div></div>
+<div class="row">
+    <div class="col-6">
+    <mat-form-field appearance="outline">
+      <mat-label class="fs-6">Nomenclature</mat-label>
+      <input matInput class="fs-6" placeholder="Nomenclature" name="nomenclature" required [(ngModel)]="article.nomenclature">
+    </mat-form-field>
+</div>
+<div class="col-6">
+    <mat-form-field appearance="fill">
+        <mat-label>Unité de gestion</mat-label>
+        <mat-select [(ngModel)]="article.uniteGestion" name="uniteGestion" required>
+          <mat-option value="carton">Carton</mat-option>
+          <mat-option value="boite">Boite</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div></div>
+<div class="row">
+    <div class="col-3">
+    <div class="form-group">
+        <label>Famille</label>
+        <select [compareWith]="comparer" [(ngModel)]="article.f"    name="f" class="form-control" required >
+          <option  [ngValue]="undefined"  ng-required="expression" >Selectionnez une famille d'article</option>
+          <option  *ngFor="let f of famille"  [ngValue]="f" >{{f.intitule}}</option>
+        </select>
+        <h4 class="n" *ngIf="tmp">{{tmp}}</h4>
+      </div>
+    </div>
+    <div class="col-3"></div>
+<div class="col-6">
+    <mat-form-field appearance="outline">
+      <mat-label class="fs-6">Stock</mat-label>
+      <input type="number" name="stock" ng-required="expression" [(ngModel)]="article.stock" matInput class="fs-6" placeholder="stock" required>
+    </mat-form-field>
+</div></div>
+<br>
+<div class="row">
+  <div class="col-6">
+    <input type="file" *ngIf="!article.id"  accept="image/*"  (change)="onSelectedFile($event)" id="selectFile" #selectFile [(ngModel)]="article.imagesAr" >
+    <img [src]="imgUrl" width="100px" height="100px" *ngIf="imgUrl">
+ <p *ngIf="msg">{{msg}}</p>
+  </div>
+</div>
+<br> <br> <br>
+
+<br><br>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-3">
+      <button class="btn btn-danger"  *ngIf="!article.id"  (click)="onSubmit()">Valider</button>
+      <button class="btn btn-danger"  *ngIf="article.id" (click)="onSubmit1()">Editer</button>
+  </div>
+</div>
+</form>
+
+
+  
+  

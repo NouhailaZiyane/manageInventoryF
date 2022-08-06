@@ -1,0 +1,52 @@
+<form name="myForm">
+    <h3 class="fs-3 fw-bolder" *ngIf="m.id"> Editer la mouvement</h3>
+    <h3 class="fs-5 fw-bolder" *ngIf="m.id"> Cliquer deux fois</h3>
+    <h3  class="fs-3 fw-bolder" *ngIf="!m.id">Créer une mouvement</h3>
+    <div class="alert alert-danger" role="alert" *ngIf="tmp">
+      {{tmp}}
+    </div> <br>
+  <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label>Article</label>
+          <select [(ngModel)]="m.a" name="c"  [compareWith]="comparer1"  class="form-control" required >
+        <option *ngFor="let a of art"  [ngValue]="a" >{{a.designation}}</option>
+          </select></div>
+     
+  </div>
+ 
+  </div><br>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Entrepot</label>
+        <select [(ngModel)]="m.e" name="e" [compareWith]="comparer"   class="form-control" required placeholder="choisir un entrepot" >
+      <option *ngFor="let e of entre"  [ngValue]="e" >{{e.intitule}}</option>
+        </select></div>
+    </div>
+  </div><br>
+  <div class="row">
+      <div class="col-6">
+      <mat-form-field appearance="outline" [style.width.px]=410>
+        <mat-label class="fs-6">Stock</mat-label>
+        <input type="number" matInput  [(ngModel)]="m.stock"  
+         name="typeArticle" (change)="change($event)" class="fs-6" required placeholder="type d'article">
+      </mat-form-field>
+  </div>
+ </div>
+  
+  <br> <br> <br>
+  
+  <br><br>
+  <div class="row">
+      <div class="col-4"></div>
+      <div class="col-3">
+        <button class="btn btn-danger" *ngIf="!m.id"  (click)="onSubmit()">Valider</button>
+        <button class="btn btn-danger" *ngIf="m.id"  (click)="onSubmit1(m.id)">Valider</button>
+    </div>
+  </div>
+  </form>
+  
+  
+    
+    

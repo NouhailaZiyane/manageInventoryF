@@ -1,0 +1,81 @@
+<form name="myForm">
+    <h3 class="fs-3 fw-bolder" *ngIf="client.id"> Editer un client</h3>
+    <h3  class="fs-3 fw-bolder" *ngIf="!client.id">Créer un client</h3>
+    <div class="alert alert-danger" role="alert" *ngIf="tmp">{{tmp}}</div>
+    <div class="row">
+        <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Nom</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="client.nom" name="nom" matInput placeholder="Réference" required>
+        
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label type="text" class="fs-6">Prénom</mat-label>
+          <input matInput ng-required="expression1"  [(ngModel)]="client.prenom" name="pre" placeholder="Désignation" required>
+
+        </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" [(ngModel)]="client.mail" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Tél</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="client.tel" name="tel" matInput placeholder="Réference" required>
+
+        </mat-form-field>
+    
+    </div></div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label type="text" class="fs-6">Code postal</mat-label>
+                <input matInput ng-required="expression1"  [(ngModel)]="client.cpostal" name="cpost" placeholder="Désignation" required>
+
+              </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+            <mat-label class="fs-6">Fax</mat-label>
+            <input type="text" ng-required="expression" [(ngModel)]="client.fax" name="fax" matInput placeholder="Réference" required>
+
+          </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label type="text" class="fs-6">Ville</mat-label>
+                <input matInput ng-required="expression1"  [(ngModel)]="client.ville" name="ville" placeholder="Désignation" required>
+
+              </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+            <mat-label type="text" class="fs-6">Adresse</mat-label>
+            <input matInput ng-required="expression1"  [(ngModel)]="client.adresse" name="des" placeholder="Désignation" required>
+
+          </mat-form-field>
+    </div>
+    </div>
+   
+   
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3">
+      <button class="btn btn-danger"  *ngIf="!client.id"  (click)="onSubmit()">Valider</button>
+      <button class="btn btn-danger"  *ngIf="client.id" (click)="onSubmit()">Editer</button>
+      
+      </div>
+     
+    </div></form>
+    
+      

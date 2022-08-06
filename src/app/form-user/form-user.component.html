@@ -1,0 +1,56 @@
+<form name="myForm">
+    <h3 class="fs-3 fw-bolder" *ngIf="user.id"> Editer Vos informations</h3>
+
+    <div class="row">
+        <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">Nom</mat-label>
+          <input type="text" ng-required="expression" [(ngModel)]="user.nom" name="nom" matInput placeholder="Réference" required>
+
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label type="text" class="fs-6">Prénom</mat-label>
+          <input matInput ng-required="expression1"  [(ngModel)]="user.prenom" name="pre" placeholder="Désignation" required>
+
+        </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label class="fs-6">nom d'utilisateur</mat-label>
+          <input type="email" ng-required="expression" [(ngModel)]="user.nomUtilisateur" name="mail" matInput placeholder="nom de l'utilisateur" required>
+
+        </mat-form-field>
+    </div>
+    <div class="col-6">
+        <<mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" [(ngModel)]="user.email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div></div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"  [(ngModel)]="user.password" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-3">
+      <button class="btn btn-danger"  (click)="submit()">Editer</button><br> <br>
+     
+      </div>
+      <a href="/modifierPass">Vous voulez modifier votre mot de passe</a>
+    </div></form>
+    
+      

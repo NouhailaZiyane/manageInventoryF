@@ -1,0 +1,33 @@
+<button type="button" class="btn btn-info" align="left" routerLink="/newFamille">Créer une famille d'article</button>
+
+<table class="table table-striped">
+    <thead>
+
+      <tr class="table-danger">
+        <th scope="col">Code</th>
+        <th scope="col">Intitulé</th>
+      
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-danger" *ngFor="let f of famille">
+        
+        <td>{{f.code}} </td>
+        <td>{{f.intitule}}</td>
+
+        <td><div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li><a class="dropdown-item" routerLink='/familles/{{f.id}}'>modifier cette famille</a></li>
+                <li><a class="dropdown-item" (click)="deleteFamille(f.id)">Supprimer cette famille</a></li>
+              
+            </ul>
+        </div></td>
+
+      </tr>
+      
+    </tbody>
+  </table>

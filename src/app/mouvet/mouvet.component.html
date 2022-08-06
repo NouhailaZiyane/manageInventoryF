@@ -1,0 +1,34 @@
+<button type="button" class="btn btn-info" align="left" routerLink="/formMouvet">Créer une Mouvements</button>
+
+<table class="table table-striped">
+    <thead>
+
+      <tr class="table-success">
+        <th scope="col">Entrepot</th>
+        <th scope="col">Article</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success" *ngFor="let a of clients">
+        
+        <td>{{a.e.intitule}} </td>
+        <td>{{a.a.designation}}</td>
+        <td >{{a.stock}}</td>
+  
+        <td><div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li><a class="dropdown-item" routerLink='/formMouvet/{{a.id}}'>modifier cette mouvement</a></li>
+                <li><a class="dropdown-item" (click)="deleteArticle(a.id)">Supprimer cette mouvement</a></li>
+              
+            </ul>
+        </div></td>
+
+      </tr>
+      
+    </tbody>
+  </table>
