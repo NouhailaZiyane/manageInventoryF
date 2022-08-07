@@ -10,6 +10,11 @@ import { EntrepotService } from '../services/entrepot.service';
 export class EntrepotComponent implements OnInit {
 
   entrepots!:Entrepot[]
+  search:string=''
+  filter(searchValue: string){
+    this.search=searchValue
+    console.log(this.search)
+  }
   constructor(private ser: EntrepotService) { }
 
   ngOnInit(): void {

@@ -36,8 +36,7 @@ this.router.params
 
   } 
    onSubmit1(id:number){
-    if(this.ser.deleteArticle(id).subscribe())
-   { this.ser.creerFamille1(this.m).subscribe(res=>{
+     this.ser.updateArticle(this.m).subscribe(res=>{
       if(res===null){
         this.tmp=`l'article ${this.m.a.designation} est déjà stockée dans les entrepots`
       }else if(res.stock==-1){
@@ -50,7 +49,7 @@ this.router.params
           window.location.reload();
       })
     console.log(res.stock)}
-    })}}
+    })}
   onSubmit(){
     this.ser.creerFamille1(this.m).subscribe(res=>{
       if(res===null){

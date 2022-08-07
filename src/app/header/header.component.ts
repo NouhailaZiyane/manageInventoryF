@@ -61,8 +61,8 @@ data4: any[] = [];
       {this.countClients=resp
       this.serFo.countFournisseur().subscribe(res=>
 {        this.countFournis=res;
-        this.data3.push(["Clients",this.countFournis],
-        ["Fournisseurs",this.countClients],)
+        this.data3.push(["Fournisseurs",this.countFournis],
+        ["Clients",this.countClients],)
         
 }      )}
     )

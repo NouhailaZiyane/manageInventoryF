@@ -8,6 +8,11 @@ import { FournisseursService } from '../services/fournisseurs.service';
   styleUrls: ['./fournisseurs.component.css']
 })
 export class FournisseursComponent implements OnInit {
+  search:string=''
+  filter(searchValue: string){
+    this.search=searchValue
+    console.log(this.search)
+  }
   clients!:Fournisseur[];
   constructor(private ser:FournisseursService) { }
 

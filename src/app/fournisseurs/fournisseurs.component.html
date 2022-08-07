@@ -2,6 +2,8 @@
 
 <button type="button" class="btn btn-success" align="left" (click)="export()"><mat-icon>get_app</mat-icon>Exporter la liste (csv)</button><br> <br>
 <button type="button" class="btn btn-info" align="left" routerLink="/newFournisseur">Créer un fournisseur</button><br> <br>
+<app-form-search (eventHandle)="filter($event)"></app-form-search>
+
 <table class="table table-striped">
     <thead>
 
@@ -17,8 +19,9 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="table-danger" *ngFor="let a of clients">
+    <tbody  *ngFor="let a of clients">
+      
+      <tr class="table-danger"  *ngIf="search === '' || a.nom.toLowerCase().includes(search) || a.prenom.toLowerCase().includes(search) || a.ville.toLowerCase().includes(search)">
         
         <td>{{a.nom}} </td>
         <td>{{a.prenom}}</td>

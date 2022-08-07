@@ -3,6 +3,8 @@
 <br><br>
 <button type="button" class="btn btn-info" align="left" routerLink="/newEntrepot">Créer un entrepot</button>
 <br><br>
+<app-form-search (eventHandle)="filter($event)"></app-form-search>
+
 <table class="table table-striped">
     <thead>
 
@@ -17,8 +19,8 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="table-danger" *ngFor="let a of entrepots">
+    <tbody *ngFor="let a of entrepots">
+      <tr class="table-danger"  *ngIf="search === '' || a.intitule.toLowerCase().includes(search) || a.ville.toLowerCase().includes(search) || a.adresse.toLowerCase().includes(search)">
         
 
         <td>{{a.intitule}}</td>

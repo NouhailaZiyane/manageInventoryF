@@ -28,7 +28,7 @@ export class MouvetService {
     return this.http.post<Article>(this.url+'/getMouvet', famille);
   }
   updateArticle(famille:Mouvet):Observable<Mouvet>{
-    return this.http.put<Mouvet>(this.url+'/saveM/'+famille.id, famille);
+    return this.http.post<Mouvet>(this.url+'/updateMouvet', famille);
  }
  deleteArticle(id:number):Observable<any>{
   return this.http.delete<any>(this.url+'/deleteM/'+id);
